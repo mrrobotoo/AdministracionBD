@@ -56,7 +56,7 @@ public class RestController {
 	}
 	
 	
-	@PutMapping(value = "/insertarPersonas")
+	@PutMapping(value = "/UpdatePersonas")
 	public void ActualizarPersonas() {
 		
 		System.out.println("actualizar");
