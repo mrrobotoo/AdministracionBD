@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table (name = "person")
+
 public class TbPerson {
 	
 	@Id
@@ -25,4 +26,5 @@ public class TbPerson {
 	public void setLogin(String login) {
 		this.login = login;
 	}
+
 }
