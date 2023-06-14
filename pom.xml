@@ -33,7 +33,11 @@
 			<artifactId>ojdbc8</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+<<<<<<< HEAD
 		
+=======
+	
+>>>>>>> origin/JEAA
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
