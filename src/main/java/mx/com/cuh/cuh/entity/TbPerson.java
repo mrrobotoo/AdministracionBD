@@ -6,14 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="person")
-public class TbPerson {
-	@Id
-	@Column(name = "ID_PERSON")
-	private Long idPerson;
-	@Column(name = "LOGIN")
-=======
 import javax.persistence.*;
 
 @Entity
