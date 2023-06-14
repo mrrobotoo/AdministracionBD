@@ -1,10 +1,27 @@
 package mx.com.cuh.cuh.service;
 
-public class UsuarioImpl implements Usuario{
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import mx.com.cuh.cuh.entity.TbPerson;
+import mx.com.cuh.cuh.repository.TbPersonRepository;
+
+@Service
+public class UsuarioImpl implements Usuario {
+	@Autowired
+	private TbPersonRepository tbPersonRepository;
+	
+	@Override
+	public List<TbPerson> obtenerPersonas() {
+		return tbPersonRepository.findAll();
+	}
 
 	@Override
-	public void metodo() {
-		// TODO Auto-generated method stub domestic violence
+	public void borrarPersona(Long idPerson) {
+		tbPersonRepository.deleteById(idPerson);
+		
 	}
 	
 }
