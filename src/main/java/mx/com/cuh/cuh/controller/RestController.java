@@ -46,8 +46,9 @@ public class RestController {
 	}
 	
 	@DeleteMapping(value = "/borrarPersona")
-	public void borrarPersonas() {
-		Long idPerson = 40269L;
+	public void borrarPersonas(@RequestParam 
+			Long idPerson) {
+		
 		usuario.borrarPersona(idPerson);
 	}
 	
