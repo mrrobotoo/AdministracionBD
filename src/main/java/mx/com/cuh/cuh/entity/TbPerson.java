@@ -14,6 +14,7 @@ public class TbPerson {
 	private Long idPerson;
 	
 	@Column (name = "LOGIN")
+
 	private String login;
 	
 	public Long getIdPerson() {

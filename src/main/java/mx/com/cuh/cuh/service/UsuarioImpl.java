@@ -9,6 +9,7 @@ import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.repository.TbPersonRepository;
 
 @Service
+
 public class UsuarioImpl implements Usuario{
 	@Autowired
 	private TbPersonRepository tbPersonRepository;
@@ -18,5 +19,6 @@ public class UsuarioImpl implements Usuario{
 
 		return tbPersonRepository.findAll();
 	}
+
 
 }

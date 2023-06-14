@@ -1,6 +1,7 @@
 package mx.com.cuh.cuh.repository;
 
 
+
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -12,4 +13,5 @@ public interface TbPersonRepository
 extends CrudRepository<TbPerson, Long> {
 	//Trae todos los datos, es decir un select * from person;
 	List<TbPerson> findAll();
+
 }

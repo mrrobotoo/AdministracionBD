@@ -21,12 +21,6 @@ public class RestController {
 	@Autowired
 	private Usuario usuario;
 	
-	@GetMapping(value = "/obtenerpersonas")
-	public List<TbPerson> listaPersonas(){
-		
-		return usuario.obtenerPersonas();
-		
-	}
 	
 	@GetMapping(value = "/obtenerinfo")
 	public void listaPersonas2(@RequestParam 
@@ -42,10 +36,15 @@ public class RestController {
 		+ persona.getNombre());
 	}
 	
-	@DeleteMapping(value = "/insertarPersonas")
-	public void insertarPersonas2() {
-		
-		System.out.println("eliminar");
+	@DeleteMapping(value = "/borrarPersona")
+	public void borrarPersonas() {
+		Long idPerson = 40269L;
+		usuario.borrarPersona(idPerson);
+	}
+	
+	@PutMapping(value = "/updateperson")
+	public void actualizarpersonas() {
+		System.out.println("ACTUALIZO");
 	}
 	
 	@PutMapping(value ="/insertarPersonas")

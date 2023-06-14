@@ -6,4 +6,6 @@ import mx.com.cuh.cuh.entity.TbPerson;
 
 public interface Usuario {
 	List<TbPerson> obtenerPersonas();
+
 }
+
