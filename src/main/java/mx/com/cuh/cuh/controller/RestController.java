@@ -1,8 +1,8 @@
 package mx.com.cuh.cuh.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,28 +11,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import mx.com.cuh.cuh.dto.PersonaDTO;
-import mx.com.cuh.cuh.dto.Respuesta;
+import mx.com.cuh.cuh.entity.TbPerson;
+import mx.com.cuh.cuh.service.Usuario;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 	
+	@Autowired
+	private Usuario usuario;
+	
 	@GetMapping(value = "/obtenerpersonas")
-	public Respuesta listaPersonas() {
+	public List<TbPerson> listaPersonas()  {
 		
-		List<PersonaDTO> listasPersonas
-		= new ArrayList<PersonaDTO>();
-		
-		PersonaDTO persona1 = new PersonaDTO();
-		persona1.setNombre("juan");
-		persona1.setEdad(15);
-		
-		listasPersonas.add(persona1);
-		
-		Respuesta reponse = new Respuesta();
-		reponse.setListasPersona(listasPersonas);
-		reponse.setMensaje("Todo okas");
-		
-		return reponse; 
+		return usuario.obtenerPersonas(); 
 	}
 	
 	@GetMapping(value = "/obtenerinfo")
@@ -55,8 +46,8 @@ public class RestController {
 		System.out.println("eliminar");
 	}
 	
-	@PutMapping(value = "/ActualizarPersonas")
-	public void insertarPersonas2() {
+	@PutMapping(value = "/actualizarPersonas")
+	public void actualizarPersonas2() {
 		
 		System.out.println("actualizar");
 	}
