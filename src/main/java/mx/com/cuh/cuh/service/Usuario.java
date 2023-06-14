@@ -5,7 +5,8 @@ import java.util.List;
 import mx.com.cuh.cuh.entity.TbPerson;
 
 public interface Usuario {
-  List<TbPerson> obtenerPersonas();
-  
-  
+
+	List<TbPerson> obtenerPersonas();
+	void borrarPersona(Long idPerson);
+
 }

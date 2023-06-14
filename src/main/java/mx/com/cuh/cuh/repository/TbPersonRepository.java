@@ -7,8 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 import mx.com.cuh.cuh.entity.TbPerson;
 
 @org.springframework.stereotype.Repository
-public interface TbPersonRepository 
+public interface TbPersonRepository
 extends CrudRepository<TbPerson, Long> {
-	//Select * from person 
+	//SELECT * FROM PERSON
 	List<TbPerson> findAll();
+	void deleteById(Long idPerson);
+
 }

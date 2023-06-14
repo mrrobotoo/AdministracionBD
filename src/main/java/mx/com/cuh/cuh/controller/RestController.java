@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import mx.com.cuh.cuh.dto.PersonaDTO;
+
+import mx.com.cuh.cuh.dto.Respuesta;
+
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.service.Usuario;
 
@@ -21,7 +24,9 @@ public class RestController {
 	private Usuario usuario;
 	
 	@GetMapping(value = "/obtenerpersonas")
-	public List<TbPerson> listaPersonas()  {
+
+	public List<TbPerson> listaPersonas() {
+
 		
 		return usuario.obtenerPersonas(); 
 	}
@@ -40,10 +45,15 @@ public class RestController {
 		+ persona.getNombre());
 	}
 	
-	@DeleteMapping(value = "/insertarPersonas")
-	public void insertarPersonas2() {
-		
-		System.out.println("eliminar");
+	@DeleteMapping(value = "/borrarPersona")
+	public void borrarPersonas() {
+		Long idPerson = 40269L;
+		usuario.borrarPersona(idPerson);
+	}
+	
+	@PutMapping(value = "/updateperson")
+	public void actualizarpersonas() {
+		System.out.println("ACTUALIZO");
 	}
 	
 	@PutMapping(value = "/actualizarPersonas")

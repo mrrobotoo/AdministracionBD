@@ -7,17 +7,23 @@ import org.springframework.stereotype.Service;
 
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.repository.TbPersonRepository;
- @Service
-public class UsuarioImpl  implements Usuario{
-	 
-	 @Autowired
-	 private TbPersonRepository tbPersonRepository;
-	 
 
+
+@Service
+public class UsuarioImpl implements Usuario {
+	@Autowired
+	private TbPersonRepository tbPersonRepository;
+	
 	@Override
 	public List<TbPerson> obtenerPersonas() {
-		// TODO Auto-generated method stub
 		return tbPersonRepository.findAll();
 	}
 
+	@Override
+	public void borrarPersona(Long idPerson) {
+		tbPersonRepository.deleteById(idPerson);
+		
+	}
+
+	
 }
