@@ -9,6 +9,7 @@ import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.repository.TbPersonRepository;
 
 @Service
+
 public class UsuarioImpl implements Usuario{
 	
 	@Autowired
@@ -17,6 +18,12 @@ public class UsuarioImpl implements Usuario{
 	@Override
 	public List<TbPerson> obtenerPersonas() {
 		return tbPersonRepository.findAll();
+	}
+
+	@Override
+	public void borrarPersona(Long idPerson) {
+		tbPersonRepository.deleteById(idPerson);
+		
 	}
 
 }
