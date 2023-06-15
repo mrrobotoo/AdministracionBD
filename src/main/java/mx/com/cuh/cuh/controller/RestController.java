@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import mx.com.cuh.cuh.dto.PersonaDTO;
-
-import mx.com.cuh.cuh.dto.Respuesta;
-
+import mx.com.cuh.cuh.dto.RespuestaEliminar;
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.service.Usuario;
 
@@ -46,10 +44,10 @@ public class RestController {
 	}
 	
 	@DeleteMapping(value = "/borrarPersona")
-	public void borrarPersonas(@RequestParam 
+	public RespuestaEliminar borrarPersonas(@RequestParam 
 			Long idPerson) {
 		
-		usuario.borrarPersona(idPerson);
+		return usuario.borrarPersona(idPerson);
 	}
 	
 	@PutMapping(value = "/updateperson")
