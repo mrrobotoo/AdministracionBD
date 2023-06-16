@@ -1,0 +1,14 @@
+diff a/src/main/java/mx/com/cuh/cuh/controller/RestController.java b/src/main/java/mx/com/cuh/cuh/controller/RestController.java	(rejected hunks)
+@@ -44,10 +44,10 @@
+ 	}
+ 	
+ 	@DeleteMapping(value = "/borrarPersona")
+-	public void borrarPersonas(@RequestParam 
++	public RespuestaEliminar borrarPersonas(@RequestParam 
+ 			Long idPerson) {
+ 		
+-		usuario.borrarPersona(idPerson);
++		return usuario.borrarPersona(idPerson);
+ 	}
+ 	
+ 	@PutMapping(value = "/updateperson")
