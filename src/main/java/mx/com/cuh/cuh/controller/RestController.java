@@ -1,6 +1,5 @@
 package mx.com.cuh.cuh.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import mx.com.cuh.cuh.dto.PersonaDTO;
-import mx.com.cuh.cuh.dto.Respuesta;
+import mx.com.cuh.cuh.dto.Respuesta2;
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.service.Usuario;
 
@@ -43,8 +42,8 @@ public class RestController {
 	}
 	
 	@DeleteMapping(value = "/borrarPersona")
-	public void borrarPersonas() {
-		Long idPerson = 40269L;
+	public void borrarPersonas(@RequestParam 
+			Long idPerson) {
 		usuario.borrarPersona(idPerson);
 	}
 	
