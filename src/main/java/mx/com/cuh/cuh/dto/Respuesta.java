@@ -2,15 +2,18 @@ package mx.com.cuh.cuh.dto;
 
 import java.util.List;
 
-public class Respuesta {
-	private String mensaje;
-	private List<PersonaDTO> listasPersona;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-	public List<PersonaDTO> getListasPersona() {
+//@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Respuesta<T> {
+	private String mensaje;
+	private List<T> listasPersona;
+
+	public List<T> getListasPersona() {
 		return listasPersona;
 	}
 
-	public void setListasPersona(List<PersonaDTO> listasPersona) {
+	public void setListasPersona(List<T> listasPersona) {
 		this.listasPersona = listasPersona;
 	}
 
