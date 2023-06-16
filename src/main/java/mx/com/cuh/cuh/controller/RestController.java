@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import mx.com.cuh.cuh.dto.PersonaDTO;
 import mx.com.cuh.cuh.dto.Respuesta;
+
+import mx.com.cuh.cuh.entity.TbPerson;
+
 import mx.com.cuh.cuh.service.Usuario;
 
 @org.springframework.web.bind.annotation.RestController
@@ -20,9 +23,38 @@ public class RestController {
 	@Autowired
 	private Usuario usuario;
 	
+
+	
 	@GetMapping(value = "/obtenerpersonas")
 	public List<TbPerson> listaPersonas() {
-		return usuario.obtenerPersonas();
+
 		
+		return usuario.obtenerPersonas(); 
 	}
 	
+	@GetMapping(value = "/obtenerinfo")
+	public void listaPersonas2(@RequestParam 
+			String nombre) {
+		System.out.println("entro pero a obtenerinfo"+nombre);
+	}
+	
+	@PostMapping(value = "/insertarPersonas")
+	public void insertarPersonas(
+			@RequestBody PersonaDTO persona) {
+		
+		System.out.println("info super grande"
+		+ persona.getNombre());
+	}
+	
+	@DeleteMapping(value = "/borrarPersona")
+	public void borrarPersonas() {
+		Long idPerson = 40269L;
+		usuario.borrarPersona(idPerson);
+	}
+	
+	@PutMapping(value = "/updateperson")
+	public void actualizarpersonas() {
+		System.out.println("ACTUALIZO");
+	}
+}
+

@@ -1,23 +1,22 @@
 package mx.com.cuh.cuh.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "person")
-
 public class TbPerson {
-	@id
+	
+	@Id
 	@Column(name = "ID_PERSON")
-	private long idPerson;
+	private Long idPerson;
+	
+	@Column(name = "LOGIN")
 	private String login;
 	
-	public long getIdPerson() {
+	public Long getIdPerson() {
 		return idPerson;
 	}
-	public void setIdPerson(long idPerson) {
+	public void setIdPerson(Long idPerson) {
 		this.idPerson = idPerson;
 	}
 	public String getLogin() {
@@ -27,5 +26,4 @@ public class TbPerson {
 		this.login = login;
 	}
 	
-
 }
