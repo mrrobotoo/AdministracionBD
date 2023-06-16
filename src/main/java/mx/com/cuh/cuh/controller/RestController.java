@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import mx.com.cuh.cuh.dto.PersonaDTO;
+import mx.com.cuh.cuh.dto.RespuestaEliminar;
+import mx.com.cuh.cuh.entity.TbPerson;
+import mx.com.cuh.cuh.service.Usuario;
 
 
 @SuppressWarnings("hiding")
@@ -19,12 +22,6 @@ public class RestController<TbPerson, Usuario> {
 	@Autowired
 	private Usuario usuario;
 
-	
-	@GetMapping(value = "/obtenerpersonas")
-	public List<TbPerson> listaPersonas() {
-		return null;
-	}
-	
 	@PostMapping(value = "/insertarPersonas")
 	public void insertarPersonas(
 			 PersonaDTO persona) {
@@ -34,12 +31,14 @@ public class RestController<TbPerson, Usuario> {
 	}
 	
 	@DeleteMapping(value = "/borrarPersona")
-	public void borrarPersona(@RequestParam long idPerson) {
-		usuario.borrarpersona;
-	}
+	public RespuestaEliminar borrarPersona(@RequestParam 
+			Long idPerson) {
+		return ((mx.com.cuh.cuh.service.Usuario) usuario).borrarPersona(idPerson);
+}	
 	
-	@PutMapping(value = "/actualizarPersnas")
-	public void actualizarPersonas() {
-		System.out.println("Actualiza");
+	@PutMapping(value = "/actualizarPersonas")
+	public void actualizarPersonas2() {
+		
+		System.out.println("actualizar");
 	}
 }

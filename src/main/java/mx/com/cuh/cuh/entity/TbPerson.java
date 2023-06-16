@@ -1,6 +1,9 @@
 package mx.com.cuh.cuh.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
@@ -13,12 +16,16 @@ public class TbPerson {
 	@Column(name = "LOGIN")
 	private String login;
 	
+
 	public Long getIdPerson() {
 		return idPerson;
 	}
 	public void setIdPerson(Long idPerson) {
 		this.idPerson = idPerson;
 	}
+
+
+
 	public String getLogin() {
 		return login;
 	}
@@ -27,3 +34,4 @@ public class TbPerson {
 	}
 	
 }
+
