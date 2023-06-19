@@ -1,20 +1,33 @@
 package mx.com.cuh.cuh.dto;
 
 public class PersonaDTO {
-	private String nombre;
-	private Integer edad;
+	private String login;
+	private String name;
+	private Long idPerson;
+
+	public Long getIdPerson() {
+		return idPerson;
+	}
+
+	public void setIdPerson(Long idPerson) {
+		this.idPerson = idPerson;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
 	
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public Integer getEdad() {
-		return edad;
-	}
-	public void setEdad(Integer edad) {
-		this.edad = edad;
-	}
 	
 }

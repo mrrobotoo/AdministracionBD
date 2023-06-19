@@ -17,6 +17,10 @@ public class TbPerson {
 
 	private String login;
 	
+	@Column (name = "NAME")
+
+	private String name;
+	
 	public Long getIdPerson() {
 		return idPerson;
 	}
@@ -29,5 +33,12 @@ public class TbPerson {
 	public void setLogin(String login) {
 		this.login = login;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	
 }
