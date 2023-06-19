@@ -1,10 +1,11 @@
 package mx.com.cuh.cuh.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import mx.com.cuh.cuh.dto.Respuesta;
 import mx.com.cuh.cuh.dto.RespuestaEliminar;
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.repository.TbPersonRepository;
@@ -16,8 +17,11 @@ public class UsuarioImpl implements Usuario {
 	private TbPersonRepository tbPersonRepository;
 	
 	@Override
-	public List<TbPerson> obtenerPersonas() {
-		return tbPersonRepository.findAll();
+	public Respuesta<TbPerson> obtenerPersonas(){
+		Respuesta<TbPerson> response = new Respuesta<>();
+		response.setListasPersona(tbPersonRepository.findAll());
+		response.setMensaje("ok");
+		return response;
 	}
 
 	@Override
@@ -25,12 +29,12 @@ public class UsuarioImpl implements Usuario {
 		Optional<TbPerson> persona =
 				tbPersonRepository.findById(idPerson);
 		RespuestaEliminar response = new RespuestaEliminar();
-		if (persona.isPresent()) {
+		
+		String mensaje = (persona.isPresent())?"Todo okas" : "Todo no esta okas";
+		
+		
 			tbPersonRepository.deleteById(idPerson);
-			response.setMensaje("Se eliminó correctamente");
-		}else {
-			response.setMensaje("El usuario " + idPerson + " no existe");
-		}
+			response.setMensaje(mensaje);
 		return response;
 	}
 	
