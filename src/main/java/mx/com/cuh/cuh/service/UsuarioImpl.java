@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import mx.com.cuh.cuh.dto.Respuesta2;
+import mx.com.cuh.cuh.dto.Respuesta;
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.repository.TbPersonRepository;
 
@@ -17,22 +17,27 @@ public class UsuarioImpl implements Usuario {
 	private TbPersonRepository tbPersonRepository;
 	
 	@Override
-	public List<TbPerson> obtenerPersonas() {
-		return tbPersonRepository.findAll();
+	public Respuesta<TbPerson> obtenerPersonas() {
+		Respuesta<TbPerson> response = new Respuesta<>();
+        response.setListasPersona(tbPersonRepository.findAll());
+        response.setMensaje("ok");
+		return response;
 	}
 
 	@Override
-	public Respuesta2 borrarPersona(Long idPerson) {
-		Optional<TbPerson> persona =
-				tbPersonRepository.findById(idPerson);
-		Respuesta2 response = new Respuesta2();
-		if(persona.isPresent()) {
-			tbPersonRepository.deleteById(idPerson);
-			response.setMensaje("OK");
-		} else {
-			response.setMensaje("NO OK");
-		}
-		
-		return response;
-	}
+    public Respuesta<String> borrarPersona(Long idPerson) {
+        Optional<TbPerson> persona =
+                tbPersonRepository.findById(idPerson);
+        Respuesta<String> response = new Respuesta<>();
+        
+        String mensaje = (persona.isPresent()) ? "Todo bien, Todo correcto" : "El usuario " + idPerson + " no existe";
+        
+        tbPersonRepository.deleteById(idPerson);
+   
+        response.setMensaje(mensaje);
+        return response;
+   }
+
+
+	
 }

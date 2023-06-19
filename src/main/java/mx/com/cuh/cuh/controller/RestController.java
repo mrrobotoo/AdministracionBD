@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import mx.com.cuh.cuh.dto.PersonaDTO;
-import mx.com.cuh.cuh.dto.Respuesta2;
+import mx.com.cuh.cuh.dto.Respuesta;
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.service.Usuario;
 
@@ -22,7 +22,7 @@ public class RestController {
 	private Usuario usuario;
 	
 	@GetMapping(value = "/obtenerpersonas")
-	public List<TbPerson> listaPersonas() {
+	public Respuesta<TbPerson> listaPersonas() {
 		
 		return usuario.obtenerPersonas(); 
 	}
@@ -42,9 +42,9 @@ public class RestController {
 	}
 	
 	@DeleteMapping(value = "/borrarPersona")
-	public void borrarPersonas(@RequestParam 
+    public Respuesta<String> borrarPersonas(@RequestParam 
 			Long idPerson) {
-		usuario.borrarPersona(idPerson);
+        return usuario.borrarPersona(idPerson);
 	}
 	
 	@PutMapping(value = "/updateperson")
