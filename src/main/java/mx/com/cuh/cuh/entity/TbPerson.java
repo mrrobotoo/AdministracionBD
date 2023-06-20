@@ -18,6 +18,8 @@ public class TbPerson {
 	@Column(name = "LOGIN")
 	private String login;
 	
+	@Column (name = "name")
+	
 	public Long getIdPerson() {
 		return idPerson;
 	}
