@@ -1,17 +1,25 @@
 package mx.com.cuh.cuh.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "person")
+@Table (name = "person")
 public class TbPerson {
 	
 	@Id
-	@Column(name = "ID_PERSON")
+	@Column (name = "ID_PERSON")
 	private Long idPerson;
 	
-	@Column(name = "LOGIN")
+	@Column (name = "LOGIN")
+
 	private String login;
+	
+	@Column (name = "NAME")
+
+	private String name;
 	
 	public Long getIdPerson() {
 		return idPerson;
@@ -25,4 +33,12 @@ public class TbPerson {
 	public void setLogin(String login) {
 		this.login = login;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 }

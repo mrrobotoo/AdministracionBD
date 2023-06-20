@@ -5,13 +5,14 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Respuesta<T> {
+public class Respuesta <T>{
 	private String mensaje;
 	private List<T> listasPersona;
-
-	public List<T> getListasPersona() {
+	
+	public List<T> getListasPersona(){
 		return listasPersona;
 	}
+	
 
 	public void setListasPersona(List<T> listasPersona) {
 		this.listasPersona = listasPersona;

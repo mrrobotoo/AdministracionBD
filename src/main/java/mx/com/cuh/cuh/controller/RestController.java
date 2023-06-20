@@ -17,15 +17,8 @@ import mx.com.cuh.cuh.service.Usuario;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
-	
 	@Autowired
 	private Usuario usuario;
-	
-	@GetMapping(value = "/obtenerpersonas")
-	public Respuesta<TbPerson> listaPersonas() {
-		
-		return usuario.obtenerPersonas(); 
-	}
 	
 	@GetMapping(value = "/obtenerinfo")
 	public void listaPersonas2(@RequestParam 
@@ -34,28 +27,22 @@ public class RestController {
 	}
 	
 	@PostMapping(value = "/insertarPersonas")
-	public void insertarPersonas(
+	public Respuesta insertarPersonas(
 			@RequestBody PersonaDTO persona) {
+		return usuario.insertarPersona(persona);
 		
-		System.out.println("info super grande"
-		+ persona.getNombre());
 	}
 	
 	@DeleteMapping(value = "/borrarPersona")
-    public Respuesta<String> borrarPersonas(@RequestParam 
+
+	public Respuesta borrarPersonas(@RequestParam 
 			Long idPerson) {
-        return usuario.borrarPersona(idPerson);
-	}
-	
-	@PutMapping(value = "/updateperson")
-	public void actualizarpersonas() {
-		System.out.println("ACTUALIZO");
+		return usuario.borrarPersona(idPerson);	
 	}
 
 
 	@PutMapping(value = "/update")
 		public void actualizarPersonas() {
-		
 			System.out.println("Actualizado");
 	}
 }
