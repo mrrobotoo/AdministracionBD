@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import mx.com.cuh.cuh.dto.PersonaDTO;
 import mx.com.cuh.cuh.dto.Respuesta;
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.repository.TbPersonRepository;
@@ -46,5 +47,18 @@ public class UsuarioImpl implements Usuario {
 			response.setMensaje("El usuario " + idPerson + " no existe");
 		}
 		return response;*/
+	}
+
+	@Override
+	public Respuesta<String> insertarPersona(PersonaDTO persona) {
+	Long idPersonMaximo =tbPersonRepository.obtenerMaximoIdPerson();
+	TbPerson personaFinal = new TbPerson();
+	personaFinal:setIdPerson(idPersonMaximo);
+	personaFinal:setIdPerson(persona.getLogin());
+	//Insert into person()values (?,?)
+	tbPersonRepository.save(personaFinal);
+	Respuesta<String> reponse = new Respuesta<>();
+	reponse.setMensaje("Se inserto correctamente");
+		return response;
 	}
 }
