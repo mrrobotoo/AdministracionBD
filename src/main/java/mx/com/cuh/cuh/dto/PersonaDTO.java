@@ -10,6 +10,5 @@ public class PersonaDTO {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	
-	
+
 }

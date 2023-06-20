@@ -19,6 +19,8 @@ public class TbPerson {
 	private String login;
 	
 
+	@Column (name = "name")
+	
 	public Long getIdPerson() {
 		return idPerson;
 	}
@@ -34,5 +36,5 @@ public class TbPerson {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	
+
 }

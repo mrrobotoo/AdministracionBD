@@ -1,40 +1,48 @@
 package mx.com.cuh.cuh.service;
 
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-<<<<<<< HEAD
 import mx.com.cuh.cuh.dto.PersonaDTO;
-=======
->>>>>>> origin/JonathanEmmanuelCruzAlttamirano
 import mx.com.cuh.cuh.dto.Respuesta;
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.repository.TbPersonRepository;
 
 
 @Service
-public class UsuarioImpl implements Usuario {
+
+public class UsuarioImpl implements Usuario{
+	
 	@Autowired
 	private TbPersonRepository tbPersonRepository;
-	
+
 	@Override
 	public Respuesta<TbPerson> obtenerPersonas() {
 		Respuesta<TbPerson> response = new Respuesta<>();
 		response.setListasPersona(tbPersonRepository.findAll());
-		response.setMensaje("ok");
 
+		response.setMensaje("La lista de las personas es la siguiente: ");
+		return response;
 	}
 
 	@Override
-	public Respuesta<String>  borrarPersona(Long idPerson) {
+	public Respuesta<String> borrarPersona(Long idPerson) {
 		Optional<TbPerson> persona =
-				tbPersonRepository.findById(idPerson);
+		tbPersonRepository.findById(idPerson);
+		Respuesta<String> response = new Respuesta<>();
 		
-		Respuesta<String>  response = new Respuesta<>();
+		String mensaje = (persona.isPresent()) ? "Todo okas" : "Todo no okas"; 
+		
+			tbPersonRepository.deleteById(idPerson);
+			response.setMensaje("Se eliminó correctamente");
+				
+		return response;
+		
+
+		
+		/*Respuesta<String>  response = new Respuesta<>();
 		
 		String mensaje = (persona.isPresent()) ? "Todo Nice" : "Not Nice"; //OPERADOR TERNÁRIO
 			tbPersonRepository.deleteById(idPerson);
@@ -55,14 +63,18 @@ public class UsuarioImpl implements Usuario {
 
 	@Override
 	public Respuesta<String> insertarPersona(PersonaDTO persona) {
-	Long idPersonMaximo =tbPersonRepository.obtenerMaximoIdPerson();
-	TbPerson personaFinal = new TbPerson();
-	personaFinal:setIdPerson(idPersonMaximo);
-	personaFinal:setIdPerson(persona.getLogin());
-	//Insert into person()values (?,?)
-	tbPersonRepository.save(personaFinal);
-	Respuesta<String> reponse = new Respuesta<>();
-	reponse.setMensaje("Se inserto correctamente");
-		return response;
+
+		Long idPersonMaximo =tbPersonRepository.obtenerMaximoIdPerson();
+		
+		TbPerson personaFinal = new TbPerson();
+		personaFinal.setIdPerson(idPersonMaximo);
+		personaFinal.setLogin(persona.getLogin());
+		
+		//Insert into person (id_person,login) values(?,?)
+		tbPersonRepository.save(personaFinal);
+		Respuesta<String> response = new Respuesta<>();
+		response.setMensaje("Se inserto correctamente");
+		 return response;
 	}
+
 }

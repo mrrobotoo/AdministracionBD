@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Respuesta<T> {
+public class Respuesta <T>{
 	private String mensaje;
 	private List<T> listasPersona;
 

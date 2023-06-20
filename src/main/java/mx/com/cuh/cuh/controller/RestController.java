@@ -23,8 +23,7 @@ public class RestController {
 	
 	@GetMapping(value = "/obtenerpersonas")
 	public Respuesta<TbPerson> listaPersonas() {
-
-		
+	
 		return usuario.obtenerPersonas(); 
 	}
 	
@@ -39,14 +38,14 @@ public class RestController {
 			@RequestBody PersonaDTO persona) {
 		
 		System.out.println("info super grande"
-		+ persona.getNombre());
+		+ persona.getLogin());
 	}
 	
 	@DeleteMapping(value = "/borrarPersona")
 
-    public Respuesta<String> borrarPersonas(@RequestParam 
-			Long idPerson) {
-        return usuario.borrarPersona(idPerson);
+	public Respuesta<String> borrarPersonas(@RequestParam 
+		Long idPerson ) {
+		return usuario.borrarPersona(idPerson);
 	}
 	
 	@PutMapping(value = "/updateperson")
@@ -54,11 +53,11 @@ public class RestController {
 		System.out.println("ACTUALIZO");
 	}
 
-
-	@PutMapping(value = "/update")
-		public void actualizarPersonas() {
+	
+	@PutMapping(value = "/actualizarPersonas")
+	public void actualizarPersonas2() {
 		
-			System.out.println("Actualizado");
+		System.out.println("actualizar");
 	}
 }
 

@@ -9,18 +9,18 @@ import org.springframework.data.repository.CrudRepository;
 import mx.com.cuh.cuh.entity.TbPerson;
 
 @org.springframework.stereotype.Repository
-public interface TbPersonRepository
+public interface TbPersonRepository 
 extends CrudRepository<TbPerson, Long> {
-	
-	//SELECT * FROM PERSON
-	List<TbPerson> findAll();
-	//delete from person  where  id_person = 99;
-	void deleteById(Long idPerson);
-	//select * from person  where  id_person = ?
-	Optional<TbPerson> findById(Long id);
-	
-	@Query(value = "select max(id_person) +1 from person", nativeQuery = True)
-	Long obtenerMaximoIdPerson();
-	
-	}
 
+	/*los métodos findAll, deleteByAll, findById no son necesarios en esta clase ya que se heredan directamente de CrudRepository estan como muestra*/
+	List<TbPerson> findAll();  //SELECT * FROM PERSON
+	void deleteById(Long idPerson);
+	
+	//SELECT FROM PERSON WHERE ID_PERSON =? Te manda una sola persona.
+	Optional<TbPerson> findByIdAnd(Long id);
+	
+	@Query(value = "select max(id_person)+1 from person", nativeQuery = true)
+	Long obtenerMaximoIdPerson();
+
+
+}
