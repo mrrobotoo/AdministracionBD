@@ -43,20 +43,22 @@ public class RestController {
 	}
 	
 	@DeleteMapping(value = "/borrarPersona")
-	public mx.com.cuh.cuh.dto.Respuesta<String>  borrarPersonas(@RequestParam 
+
+    public Respuesta<String> borrarPersonas(@RequestParam 
 			Long idPerson) {
-		
-		return usuario.borrarPersona(idPerson);
+        return usuario.borrarPersona(idPerson);
 	}
 	
 	@PutMapping(value = "/updateperson")
 	public void actualizarpersonas() {
 		System.out.println("ACTUALIZO");
 	}
-	
-	@PutMapping(value = "/actualizarPersonas")
-	public void actualizarPersonas2() {
+
+
+	@PutMapping(value = "/update")
+		public void actualizarPersonas() {
 		
-		System.out.println("actualizar");
+			System.out.println("Actualizado");
 	}
 }
+

@@ -23,3 +23,4 @@ extends CrudRepository<TbPerson, Long> {
 	Long obtenerMaximoIdPerson();
 	
 	}
+

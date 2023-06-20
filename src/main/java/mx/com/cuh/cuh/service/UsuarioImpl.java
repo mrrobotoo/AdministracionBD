@@ -1,12 +1,16 @@
 package mx.com.cuh.cuh.service;
 
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import mx.com.cuh.cuh.dto.PersonaDTO;
+=======
+>>>>>>> origin/JonathanEmmanuelCruzAlttamirano
 import mx.com.cuh.cuh.dto.Respuesta;
 import mx.com.cuh.cuh.entity.TbPerson;
 import mx.com.cuh.cuh.repository.TbPersonRepository;
@@ -22,7 +26,7 @@ public class UsuarioImpl implements Usuario {
 		Respuesta<TbPerson> response = new Respuesta<>();
 		response.setListasPersona(tbPersonRepository.findAll());
 		response.setMensaje("ok");
-		return response;
+
 	}
 
 	@Override
