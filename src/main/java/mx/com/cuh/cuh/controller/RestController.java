@@ -14,6 +14,7 @@ import mx.com.cuh.cuh.service.Usuario;
 
 @SuppressWarnings("hiding")
 @org.springframework.web.bind.annotation.RestController
+<<<<<<< HEAD
 public class RestController<TbPerson, Usuario> {
 	@Autowired
 	private Usuario usuario;
@@ -21,12 +22,33 @@ public class RestController<TbPerson, Usuario> {
 	@PostMapping(value = "/insertarPersonas")
 	public void insertarPersonas(
 			 PersonaDTO persona) {
+=======
+public class RestController {
+	@Autowired
+	private Usuario usuario;
+	
+	
+	@GetMapping(value = "/obtenerPersonas")
+	public Respuesta<TbPerson> listaPersonas() {
+		return usuario.obtenerPersonas();
+	}
+	
+	@GetMapping(value = "/obtenerinfo")
+	public void listaPersonas2(@RequestParam 
+			String nombre) {
+		System.out.println("entro pero a obtenerinfo"+nombre);
+	}
+	
+	@PostMapping(value = "/insertarPersonas")
+	public Respuesta insertarPersonas(
+			@RequestBody PersonaDTO persona) {
+		return usuario.insertarPersona(persona);
+>>>>>>> origin/Flor_Adilene_Luna_Solano
 		
-		System.out.println("info super grande"
-		+ persona.getNombre());
 	}
 	
 	@DeleteMapping(value = "/borrarPersona")
+<<<<<<< HEAD
 	public RespuestaEliminar borrarPersona(@RequestParam 
 			Long idPerson) {
 		return ((mx.com.cuh.cuh.service.Usuario) usuario).borrarPersona(idPerson);
@@ -38,3 +60,17 @@ public class RestController<TbPerson, Usuario> {
 		System.out.println("actualizar");
 	}
 }
+=======
+	public Respuesta borrarPersonas(@RequestParam 
+			Long idPerson) {
+		return usuario.borrarPersona(idPerson);	
+	}
+	
+	@PutMapping(value = "/updateperson")
+	public Respuesta actualizarpersonas(@RequestBody PersonaDTO persona) {
+		return usuario.updatePersona(persona);
+	}
+	
+
+}
+>>>>>>> origin/Flor_Adilene_Luna_Solano
